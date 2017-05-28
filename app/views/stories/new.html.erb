@@ -1,0 +1,14 @@
+<h1>Add new Story</h1>
+<%= form_for @story do |f| %>
+  <%= render "shared/errors_messages", object: f.object %>
+  <%= f.label :category %>
+  <%= f.select :category_id, @categories %>
+  <p></p>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <p></p>
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+  <p></p>
+  <%= f.submit %>
+<% end %>
