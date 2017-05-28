@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories, only: [:index, :new, :create]
+  resources :categories, except: [:edit, :update, :destroy]
+  resources :stories, except: [:edit, :update, :destroy]
 end
