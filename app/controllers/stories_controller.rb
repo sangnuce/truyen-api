@@ -5,7 +5,7 @@ class StoriesController < ApplicationController
 
   def new
     @categories = Category.all.map{|category| [category.name, category.id]}
-    @story = Story.new
+    @story = Story.new category_id: params[:category_id]
   end
 
   def create
