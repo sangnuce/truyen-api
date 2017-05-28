@@ -1,0 +1,9 @@
+<h1><%= @category.name %></h1>
+
+<p>
+  <%= link_to "New story", new_story_path(category_id: @category.id) %>
+</p>
+
+<ul>
+  <%= render @category.stories %>
+</ul>

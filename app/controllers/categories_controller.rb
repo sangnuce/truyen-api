@@ -21,9 +21,14 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    category = Category.find_by id: params[:id]
-    if category
-      render json: {category: category.as_json(include: :stories)}
+    @category = Category.find_by id: params[:id]
+    if @category
+      respond_to do |format|
+        format.html
+        format.json do
+          render json: {category: @category.as_json(include: :stories)}
+        end
+      end
     else
       respond_to do |format|
         format.html{redirect_to categories_path}
